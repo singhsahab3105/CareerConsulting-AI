@@ -21,7 +21,18 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
   final _educationCtrl = TextEditingController();
   final _interestsCtrl = TextEditingController();
   final _skillsCtrl = TextEditingController();
+  final _highestQualCtrl = TextEditingController();
+  final _collegeCtrl = TextEditingController();
   final _goalCtrl = TextEditingController();
+  final _courseCtrl = TextEditingController();
+  final _communicationCtrl = TextEditingController(); // Added this line
+  final _hobbiesCtrl = TextEditingController(); // Added this line
+  final _eventsCtrl = TextEditingController(); // Added this line
+  final _projectsCtrl = TextEditingController(); // Added this line
+  final _languagesCtrl = TextEditingController(); // Added this line
+  final _preferredLocationsCtrl = TextEditingController(); // Added this line
+  final _birthLocationCtrl = TextEditingController(); // Added this line
+  final _careerViewCtrl = TextEditingController(); // Added this line
 
   String? _reportText;
   bool _isLoading = false;
@@ -43,13 +54,24 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
     final age = int.tryParse(_ageCtrl.text.trim()) ?? 0;
 
     final profile = CareerProfile(
-      fullName: _nameCtrl.text.trim(),
+      name: _nameCtrl.text.trim(),
       age: age,
-      educationLevel: _educationCtrl.text.trim(),
-      interests: _interestsCtrl.text.trim(),
-      skills: _skillsCtrl.text.trim(),
-      careerGoal: _goalCtrl.text.trim(),
-    );
+      highestQualification: _highestQualCtrl.text.trim(),
+      collegeOrSchoolName: _collegeCtrl.text.trim(),
+      courseName: _courseCtrl.text.trim(),
+      skillSet: _skillsCtrl.text.trim(),
+      hobbies: _hobbiesCtrl.text.trim(),
+      projectsEngaged: _projectsCtrl.text.trim(),
+      preferredLocations: _preferredLocationsCtrl.text.trim(),
+      birthLocation: _birthLocationCtrl.text.trim(),
+      careerSelfView: _careerViewCtrl.text.trim(),
+      interests: _interestsCtrl.text.trim(), // Added this line
+      communicationLevel: _communicationCtrl.text.trim(), // Added this line
+      eventsParticipated: _eventsCtrl.text.trim(), // Added this line
+      languagesKnown: _languagesCtrl.text.trim(), // Added this line
+);
+
+
 
     // store profile globally so that chatbot can also use it
     ref.read(currentProfileProvider.notifier).state = profile;
